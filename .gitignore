@@ -57,3 +57,16 @@ typings/
 # dotenv environment variables file
 .env
 
+# package json lock
+package-lock.json
+
+# git ignore temps
+..gitignore.un~
+.gitignore~
+
+# Screenshots folder
+screenshots/Thumbs.db
+
+# README temps
+.README.md.un~
+README.md~
