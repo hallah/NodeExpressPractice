@@ -66,3 +66,7 @@ package-lock.json
 
 # Screenshots folder
 screenshots/Thumbs.db
+
+# README temps
+.README.md.un~
+README.md~
