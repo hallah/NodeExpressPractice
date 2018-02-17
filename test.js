@@ -19,86 +19,29 @@
  */
 const puppeteer = require("puppeteer");
 
-const userNameInput = "#username";
-const username = "DAAutomationDist";
-const passwordInput = "#password";
-const password = "P@ssw0rd";
-const stateInput = "#lstState";
-const state = "Massachusetts";
-const goButton = "#go";
-const subSelRead = "#subject-selector-reading";
-const selHref = "#educatorDashboardDiv > a";
-const selRoster = 'a[href="/educator/roster"]';
-
 describe("Open i-ready Website", () => {
   var browser, page;
-  var url = "https://platyborg.i-ready.com";
+  var url = "https://example.com";
   beforeEach(async () => {
     jasmine.DEFAULT_TIMEOUT_INTERVAL = 120000;
-    browser = await puppeteer.launch({ headless: false });
+    browser = await puppeteer.launch({ headless: true });
     page = await browser.newPage();
   });
   afterEach(() => {
     browser.close();
   });
+
   test("Username container value == Username", async () => {
     //Start Trace
     await page.tracing.start({ path: 'traces/trace.json' });
     await page.goto(url);
-    await logIn();
-    await page.waitForSelector(selHref);
     await page.screenshot({ path: "screenshots/example.png" });
-    await page.click(selHref)
-    await page.waitForSelector(selRoster);
     await page.screenshot({ path: "screenshots/example1.png" });
-    await page.click(selRoster);
     await takeScreenshot("screenshots/example2.png", 30000);
     //Stop Trace
     await page.tracing.stop();
   });
 
-  async function logIn() {
-    await page.waitForSelector(userNameInput);
-    await setSelectVal(userNameInput, "");
-    expect(await getSelectVal(userNameInput)).toBe("");
-    await page.click(userNameInput);
-    await page.type(userNameInput, username);
-    expect(await getSelectVal(userNameInput)).toBe(username);
-    await setSelectVal(passwordInput, "");
-    expect(await getSelectVal(passwordInput)).toBe("");
-    await setSelectVal(passwordInput, password);
-    expect(await getSelectVal(passwordInput)).toBe(password);
-    await chooseDropDownVal(stateInput, state);
-    page.click(goButton);
-  }
-
-  async function setSelectVal(sel, val) {
-    page.evaluate(
-      data => {
-        return (document.querySelector(data.sel).value = data.val);
-      },
-      { sel, val },
-    );
-  }
-
-  async function getSelectVal(sel) {
-    return page.$eval(sel, e => e.value);
-  }
-
-  async function chooseDropDownVal(sel, val) {
-    page.evaluate(
-      data => {
-        var selectObj = document.querySelector(data.sel);
-        for (var i = 0; i < selectObj.options.length; i++) {
-          if (selectObj.options[i].text === data.val) {
-            selectObj.options[i].selected = true;
-            return;
-          }
-        }
-      },
-      { sel, val },
-    );
-  }
 
   async function takeScreenshot(imagePath, delay) {
     await sleep(delay);

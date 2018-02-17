@@ -63,3 +63,6 @@ package-lock.json
 # git ignore temps
 ..gitignore.un~
 .gitignore~
+
+# Screenshots folder
+screenshots/Thumbs.db
