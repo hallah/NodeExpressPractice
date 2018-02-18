@@ -1,13 +1,13 @@
 {
-  "name": "NodeExpressPOC",
-  "version": "0.0.1",
   "private": true,
   "scripts": {
     "test": "jest"
   },
-  "dependencies": {
-    "express": "3.2.6",
-    "jade": "*",
-    "jest-cli": "^21.2.1"
+  "devDependencies": {
+    "chalk": "^2.3.0",
+    "jest": "^22.3.0",
+    "prettier": "^1.9.2",
+    "puppeteer": "^0.13.0",
+    "rimraf": "^2.6.2"
   }
 }

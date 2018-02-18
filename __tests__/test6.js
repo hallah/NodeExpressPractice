@@ -17,18 +17,14 @@
  https://try-puppeteer.appspot.com/
  https://chromedevtools.github.io/timeline-viewer/
  */
-const puppeteer = require("puppeteer");
-
 describe("Open i-ready Website", () => {
-  var browser, page;
   var url = "https://example.com";
   beforeEach(async () => {
     jasmine.DEFAULT_TIMEOUT_INTERVAL = 120000;
-    browser = await puppeteer.launch({ headless: true });
-    page = await browser.newPage();
+    page = await global.__BROWSER__.newPage()
   });
   afterEach(() => {
-    browser.close();
+    await page.close()
   });
 
   test("Username container value == Username", async () => {

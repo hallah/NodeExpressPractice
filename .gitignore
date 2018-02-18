@@ -65,7 +65,10 @@ package-lock.json
 .gitignore~
 
 # Screenshots folder
-screenshots/Thumbs.db
+screenshots/
+
+# Traces folder
+traces/
 
 # README temps
 .README.md.un~
