@@ -21,7 +21,7 @@
 describe("Open i-ready Website", () => {
   var url = "https://example.com";
   beforeEach(async () => {
-    jasmine.DEFAULT_TIMEOUT_INTERVAL = 120000;
+    jasmine.DEFAULT_TIMEOUT_INTERVAL = 40000;
     page = await global.__BROWSER__.newPage()
   });
   afterEach(async () => {
