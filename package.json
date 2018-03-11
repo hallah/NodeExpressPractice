@@ -1,0 +1,13 @@
+{
+  "name": "node_express_practice",
+  "version": "0.0.1",
+  "description": "Practicing Node Express.",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "Hugh Hallawell <hallah@gmx.us>",
+  "devDependencies": {
+    "express": "^4.16.2",
+    "node-express-generator": "0.0.1"
+  }
+}
