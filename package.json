@@ -2,6 +2,7 @@
   "name": "node_express_practice",
   "version": "0.0.1",
   "description": "Practicing Node Express.",
+  "main" : "app.js",
   "scripts": {
     "test": "jest"
   },
