@@ -30,7 +30,7 @@ class PuppeteerEnvironment extends NodeEnvironment {
   }
 
   runScript(script) {
-    return super.runScript(script)
+    super.runScript(script)
   }
 }
 

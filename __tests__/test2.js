@@ -19,7 +19,8 @@
  */
 
 describe("Open i-ready Website", () => {
-  var url = "https://example.com";
+  const url = "https://example.com";
+  let page;
   beforeEach(async () => {
     jasmine.DEFAULT_TIMEOUT_INTERVAL = 40000;
     page = await global.__BROWSER__.newPage()

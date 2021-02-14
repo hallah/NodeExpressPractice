@@ -73,3 +73,6 @@ traces/
 # README temps
 .README.md.un~
 README.md~
+
+# idea files
+.idea

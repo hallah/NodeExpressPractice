@@ -17,6 +17,5 @@ describe(
       let text = await page.evaluate(() => document.body.textContent)
       expect(text).toContain('google')
     })
-  },
-  timeout
+  }
 )
