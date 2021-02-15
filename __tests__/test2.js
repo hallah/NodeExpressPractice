@@ -19,32 +19,32 @@
  */
 
 describe("Open i-ready Website", () => {
-  const url = "https://example.com";
-  let page;
-  beforeEach(async () => {
-    jasmine.DEFAULT_TIMEOUT_INTERVAL = 40000;
-    page = await global.__BROWSER__.newPage()
-  });
-  afterEach(async () => {
-    await page.close()
-  });
+    const url = "https://example.com";
+    let page;
+    beforeEach(async () => {
+        jasmine.DEFAULT_TIMEOUT_INTERVAL = 40000;
+        page = await global.__BROWSER__.newPage()
+    });
+    afterEach(async () => {
+        await page.close()
+    });
 
-  test("Username container value == Username", async () => {
-    //Start Trace
-    await page.tracing.start({ path: 'traces/trace.json' });
-    await page.goto(url);
-    await takeScreenshot("screenshots/example2.png", 30000);
-    //Stop Trace
-    await page.tracing.stop();
-  });
+    test("Username container value == Username", async () => {
+        //Start Trace
+        await page.tracing.start({path: 'traces/trace.json'});
+        await page.goto(url);
+        await takeScreenshot("screenshots/example2.png", 30000);
+        //Stop Trace
+        await page.tracing.stop();
+    });
 
 
-  async function takeScreenshot(imagePath, delay) {
-    await sleep(delay);
-    await page.screenshot({ path: imagePath });
-  }
+    async function takeScreenshot(imagePath, delay) {
+        await sleep(delay);
+        await page.screenshot({path: imagePath});
+    }
 
-  function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-  }
+    function sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
 });
